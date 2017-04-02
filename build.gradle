@@ -59,6 +59,7 @@ allprojects {
         testCompile "org.scalacheck:scalacheck_$scalaMajorVersion:$scalaCheck"
         testCompile "org.scalatest:scalatest_$scalaMajorVersion:$scalaTest"
         testCompile "com.typesafe.scala-logging:scala-logging_$scalaMajorVersion:$scalaLoggingVersion"
+        testRuntime 'org.pegdown:pegdown:1.1.0'
     }
 
     test {
