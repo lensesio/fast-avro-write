@@ -1,0 +1,116 @@
+package com.landoop.avro
+
+import com.sksamuel.avro4s.RecordFormat
+import org.apache.avro.generic.GenericRecord
+
+case class StockQuote(symbol: String,
+                      timestamp: Long,
+                      ask: Double,
+                      askSize: Int,
+                      bid: Double,
+                      bidSize: Int,
+                      dayHigh: Double,
+                      dayLow: Double,
+                      lastTradeSize: Int,
+                      lastTradeTime: Long,
+                      open: Double,
+                      previousClose: Double,
+                      price: Double,
+                      priceAvg50: Double,
+                      priceAvg200: Double,
+                      volume: Long,
+                      yearHigh: Double,
+                      yearLow: Double,
+                      f1:String="value",
+                      f2:String="value",
+                      f3:String="value",
+                      f4:String="value",
+                      f5:String="value",
+                      f6:String="value",
+                      f7:String="value",
+                      f8:String="value",
+                      f9:String="value",
+                      f10:String="value",
+                      f11:String="value",
+                      f12:String="value",
+                      f13:String="value",
+                      f14:String="value",
+                      f15:String="value",
+                      f16:String="value",
+                      f17:String="value",
+                      f18:String="value",
+                      f19:String="value",
+                      f20:String="value",
+                      f21:String="value",
+                      f22:String="value",
+                      f23:String="value",
+                      f24:String="value",
+                      f25:String="value",
+                      f26:String="value",
+                      f27:String="value",
+                      f28:String="value",
+                      f29:String="value",
+                      f30:String="value",
+                      f31:String="value",
+                      f32:String="value",
+                      f33:String="value",
+                      f34:String="value",
+                      f35:String="value",
+                      f36:String="value",
+                      f37:String="value",
+                      f38:String="value",
+                      f39:String="value",
+                      f40:String="value",
+                      f41:String="value",
+                      f42:String="value",
+                      f43:String="value",
+                      f44:String="value",
+                      f45:String="value",
+                      f46:String="value",
+                      f47:String="value",
+                      f48:String="value",
+                      f49:String="value",
+                      f50:String="value",
+                      f51:String="value",
+                      f52:String="value",
+                      f53:String="value",
+                      f54:String="value",
+                      f55:String="value",
+                      f56:String="value",
+                      f57:String="value",
+                      f58:String="value",
+                      f59:String="value",
+                      f60:String="value"
+                     )
+
+
+object StockQuote {
+  private implicit val format = RecordFormat[StockQuote]
+
+  val SampleQuote = StockQuote("MSFT",
+    System.currentTimeMillis(),
+    52.29,
+    1000,
+    52.21,
+    1259,
+    52.36,
+    51.01,
+    100,
+    System.currentTimeMillis(),
+    51.73,
+    51.38,
+    52.30,
+    52.11,
+    52.01,
+    3000000,
+    56.85,
+    47.85)
+
+  def generate(count: Int): Vector[GenericRecord] = {
+    (1 to count)
+      .foldLeft(Vector.empty[GenericRecord]) { case (col, _) =>
+        val quote = SampleQuote
+        col :+ format.to(quote)
+      }
+  }
+}
