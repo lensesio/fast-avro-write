@@ -26,7 +26,7 @@ Simple!
 0.1 - first cut (2017-04-02)
 
 
-## Numbers
+## Performance
 Run on 8GB, i7-4650U, SSD
 Here is the class from which the GenericRecords are created
 
@@ -111,145 +111,13 @@ case class StockQuote(symbol: String,
                       f60:String="value"
                      )
 ```
-### Standard 
-1. Writing 100k records
-```
-Run number 0 took 519 ms
-Run number 1 took 496 ms
-Run number 2 took 530 ms
-Run number 3 took 505 ms
-Run number 4 took 509 ms
-Run number 5 took 493 ms
-Run number 6 took 490 ms
-Run number 7 took 491 ms
-Run number 8 took 505 ms
-Run number 9 took 502 ms
-Min run took 490 ms
-Max run took 530 ms
-Avg run took 504 ms
-```
-2. Writing 200k records
-```
-Run number 0 took 1097 ms
-Run number 1 took 1067 ms
-Run number 2 took 981 ms
-Run number 3 took 1011 ms
-Run number 4 took 983 ms
-Run number 5 took 1007 ms
-Run number 6 took 1001 ms
-Run number 7 took 1022 ms
-Run number 8 took 990 ms
-Run number 9 took 1069 ms
-Min run took 981 ms
-Max run took 1097 ms
-Avg run took 1022 ms
 
-```
+For each record count 10 runs have been made sequentially and the min and max values have been retained. All the values are in milliseconds
+For Fast writes different parallelization factor has been used - see p in the header
 
-3. Writing 500k records
-
-```
-Run number 0 took 2755 ms
-Run number 1 took 2735 ms
-Run number 2 took 2556 ms
-Run number 3 took 2562 ms
-Run number 4 took 2558 ms
-Run number 5 took 2534 ms
-Run number 6 took 2564 ms
-Run number 7 took 2563 ms
-Run number 8 took 2570 ms
-Run number 9 took 2585 ms
-Min run took 2534 ms
-Max run took 2755 ms
-Avg run took 2598 ms
-```
-
-4.Writing 1M records
-
-```
-Run number 0 took 5079 ms
-Run number 1 took 5117 ms
-Run number 2 took 5312 ms
-Run number 3 took 5285 ms
-Run number 4 took 5306 ms
-Run number 5 took 5354 ms
-Run number 6 took 5393 ms
-Run number 7 took 5485 ms
-Run number 8 took 5477 ms
-Run number 9 took 5412 ms
-Min run took 5079 ms
-Max run took 5485 ms
-Avg run took 5322 ms
-```
-
-### Fast write 
-1. Fast write 100K
-
-```
-Run number 0 took 321 ms
-Run number 1 took 365 ms
-Run number 2 took 295 ms
-Run number 3 took 300 ms
-Run number 4 took 299 ms
-Run number 5 took 296 ms
-Run number 6 took 287 ms
-Run number 7 took 286 ms
-Run number 8 took 287 ms
-Run number 9 took 293 ms
-Min run took 286 ms
-Max run took 365 ms
-Avg run took 302 ms
-```
-
-2. Writing 200k records
-
-```
-Run number 0 took 692 ms
-Run number 1 took 643 ms
-Run number 2 took 589 ms
-Run number 3 took 600 ms
-Run number 4 took 574 ms
-Run number 5 took 571 ms
-Run number 6 took 570 ms
-Run number 7 took 592 ms
-Run number 8 took 575 ms
-Run number 9 took 585 ms
-Min run took 570 ms
-Max run took 692 ms
-Avg run took 599 ms
-```
-
-3. Writing 500k records
-```
-Run number 0 took 1575 ms
-Run number 1 took 1464 ms
-Run number 2 took 1443 ms
-Run number 3 took 1444 ms
-Run number 4 took 1462 ms
-Run number 5 took 1457 ms
-Run number 6 took 1469 ms
-Run number 7 took 1504 ms
-Run number 8 took 1489 ms
-Run number 9 took 1507 ms
-Min run took 1443 ms
-Max run took 1575 ms
-Avg run took 1481 ms
-```
-
-4 Writing 1M records
-
-```
-Run number 0 took 2948 ms
-Run number 1 took 2911 ms
-Run number 2 took 2893 ms
-Run number 3 took 2924 ms
-Run number 4 took 2925 ms
-Run number 5 took 2853 ms
-Run number 6 took 2872 ms
-Run number 7 took 2888 ms
-Run number 8 took 2908 ms
-Run number 9 took 2914 ms
-Min run took 2853 ms
-Max run took 2948 ms
-Avg run took 2903 ms
-```
+|Record Count| Standard Min| Standard Max|Fast Min (p=8)|Fast Max (p=8)|Fast Min (p=4)|Fast Max (p=4)|Fast Min (p=6)|Fast Min (p=6)|
+|------------|-------------|-------------|--------------|--------------|--------------|--------------|--------------|--------------|
+|100K        |490          |530          |286           |365           |306           |562           |284           |316           |
+|200K        |981          |1097         |570           |692           |545           |783           |586           |777           |
+|500K        |2534         |2755         |1443          |1575          |1313          |1607          |1365          |1402          |
+|1M          |5079         |5322         |2853          |2948          |2571          |2820          |2816          |2984          |
