@@ -25,12 +25,16 @@ This will write all the records to the file. If the records count passes a thres
 You can set the threshold as well; the write method takes a default parameter threshold.
 Simple!
 
+## Blog article
+
+http://www.landoop.com/blog/2017/05/fast-avro-write/
+
 ## Release History
 
-0.1 - first cut (2017-04-02)
-
+0.1 - Initial release [2017-04-02]
 
 ## Performance
+
 Run on 8GB, i7-4650U, SSD
 Here is the class from which the GenericRecords are created
 
