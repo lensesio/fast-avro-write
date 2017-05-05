@@ -2,7 +2,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.landoop/fast-avro-write/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.landoop/fast-avro-write)
 [![GitHub license](https://img.shields.io/github/license/Landoop/fast-avro-write.svg)]()
 
-# avro-fast-write
+# fast-avro-write
 A small library allowing you to parallelize the write to an avro file
 thus achieving much better throughput
 
