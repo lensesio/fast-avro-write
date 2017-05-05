@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/Landoop/fast-avro-write.svg?branch=master)](https://travis-ci.org/Landoop/fast-avro-write) [<img src="https://img.shields.io/maven-central/v/com.landoop/fast-avro-write*.svg?label=latest%20release"/>](http://search.maven.org/#search|ga|1|fast-avro-write) [![GitHub license](https://img.shields.io/github/license/Landoop/fast-avro-write.svg)]()
+[![Build Status](https://travis-ci.org/Landoop/fast-avro-write.svg?branch=master)](https://travis-ci.org/Landoop/fast-avro-write) 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.landoop/fast-avro-write/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.landoop/fast-avro-write)
+[![GitHub license](https://img.shields.io/github/license/Landoop/fast-avro-write.svg)]()
 
 # avro-fast-write
 A small library allowing you to parallelize the write to an avro file
