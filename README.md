@@ -32,6 +32,7 @@ http://www.landoop.com/blog/2017/05/fast-avro-write/
 ## Release History
 
 0.2 - [2017-09-18] Upgrade to Avro 1.8.2
+
 0.1 - [2017-04-02] Initial release
 
 ## Performance
