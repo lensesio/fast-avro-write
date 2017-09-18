@@ -34,8 +34,8 @@ allprojects {
         scalaCheck = '1.11.1'
         scalaTest = '2.2.6'
         junitVersion = '4.12'
-        avroVersion = '1.8.1'
-        avro4sVersion = "1.6.2"
+        avroVersion = '1.8.2'
+        avro4sVersion = "1.8.0"
         scalaLoggingVersion = '3.5.0'
     }
 
